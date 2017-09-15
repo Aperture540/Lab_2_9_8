@@ -25,10 +25,12 @@ int main(void) {
     double GeometricMean;
     double RootMeanSquare;
     
+    
     for(int count = 0; count < n; count++)
     {
         ArithmeticMean += vector[count]/n;
     }
+    
     
     for(int count = 0; count < n; count++)
     {
@@ -39,21 +41,32 @@ int main(void) {
         }
     }
     
-    //HarmonicMean = n/harmonicCounter;
+    
+    double geometricMeanCount = 1;
     
     for(int count = 0; count < n; count++)
     {
-        GeometricMean *= 1 * vector[count];
-        
-        if(vector[count] > 0)
+        geometricMeanCount *= vector[count];
+        if(GeometricMean == 0)
         {
-            GeometricMean = pow(GeometricMean, 1/vector[count]);
+            GeometricMean = 1;
         }
+        else
+        {
+            GeometricMean *= vector[count];
+        }
+        GeometricMean = pow(geometricMeanCount, 1/vector[count]);
     }
     
     
-    
-    // Insert your code here
+    for(int count = 0; count < n; count++)
+    {
+        RootMeanSquare += pow((vector[count]), 2)/n;
+        if(count == 4)
+        {
+            RootMeanSquare = sqrt(RootMeanSquare);
+        }
+    }
     
     
     cout << "Arithmetic Mean = " << ArithmeticMean << endl;
